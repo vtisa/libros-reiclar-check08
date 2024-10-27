@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Entradas</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <h1>Entrada de {{ autor.nombre }}</h1>
+    <div class="entry-grid">
+        {% for entrada in entradas %}
+        <div class="entry-box">
+            <i class="fas fa-book-open entry-icon"></i>
+            <h2 class="entry-title">{{ entrada.titulo }}</h2>
+            <p class="entry-content">{{ entrada.contenido|truncatechars:100 }}</p>
+            <p class="entry-date">Fecha de Publicación: {{ entrada.fecha_publicacion }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="{% url 'index' %}"><button>Volver a la página principal</button></a>
+</body>
+</html>

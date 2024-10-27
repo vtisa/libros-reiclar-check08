@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Autores</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <h1>Listas de Autores</h1>
+    <div class="author-grid">
+        {% for autor in autores %}
+        <div class="author-box">
+            <i class="fas fa-user-circle author-icon"></i>
+            <a href="{% url 'lista_entradas' autor.id %}"><h3 class="author-name">{{ autor.nombre }}</h3></a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
